@@ -1,0 +1,23 @@
+{% extends 'bot/base.html' %}
+
+{% block title %}
+    Edit new post
+{% endblock %}
+
+{% block content_title %}
+    Edit new post
+{% endblock %}
+
+{% block content %}
+    <div class="col-6">
+        <form action="{{ url_for ('bot.create_post', slug=post.slug) }}" method="POST">
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label(class='control-lable') }}
+                    {{ field(class='form-control') }}
+                </div>
+            {% endfor %}
+        <button type="submit" class="btn btn-info">Create</button>
+        </form>
+    </div>
+{% endblock %}
